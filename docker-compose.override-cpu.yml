@@ -1,3 +1,5 @@
+# zf250817.0951
+# for CPU only
 services:
   api:
     volumes:
@@ -8,12 +10,13 @@ services:
 # ADD OLLAMA
   ollama:
     image: ollama/ollama:latest
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              capabilities: [compute, utility]
+    restart: always
+#    deploy:
+#      resources:
+#        reservations:
+#          devices:
+#            - driver: nvidia
+#              capabilities: [compute, utility]
     ports:
       - "11434:11434"
     volumes:
